@@ -5,9 +5,10 @@ setup(
     version='0.1dev',
     packages=['terrariaServerUpdater', ],
     license='MIT Licence',
+    author='Alex Cummins',
     install_requires=[
         "requests",
-        "bcrypt",
+        'beautifulsoup4',
     ],
     long_description=open('README.md').read(),
 )
