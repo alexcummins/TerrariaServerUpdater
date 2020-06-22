@@ -10,7 +10,7 @@ class Folder:
 
 
 def get_current_version_number() -> Folder:
-    file_names: [str] = os.listdir("../../")
+    file_names: [str] = os.listdir("../")
     latest_folder: str = None
 
     for file_name in file_names:

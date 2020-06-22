@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from webUtils import *
-from fileUtils import *
+from .webUtils import *
+from .fileUtils import *
 
 URL = 'https://terraria.org/'
 
@@ -16,7 +16,7 @@ def main():
         update = input("Would you like to update your version? (y/n)\n").lower().startswith("y")
         if update:
             print("Downloading new server zip...")
-            download_url(server_download_href, save_path="../../NewTerrariaServer.zip")
+            download_url(server_download_href, save_path="../NewTerrariaServer.zip")
             print("Unzipping file...")
             print("Moving over server config file")
 
