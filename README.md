@@ -39,6 +39,7 @@ cd TerrariaServerUpdater
 python3 -m terrariaServerUpdater
 ```
 
-This tool won't work for Terraria servers that are older than 1.3.5.3 as the directory naming convention is different.
+* Currently only copies over exact file named 'serverconfig.txt' to new download
+* This tool won't work for Terraria servers that are older than 1.3.5.3 as the directory naming convention is different.
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
