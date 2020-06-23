@@ -4,24 +4,41 @@ from .webUtils import *
 from .fileUtils import *
 
 URL = 'https://terraria.org/'
+ZIPNAME = 'NewTerrariaServer.zip'
+CONFIG_FILE = 'serverconfig.txt'
 
 
 def main():
-    (server_download_href, version_num) = check_for_update(URL)
+    (server_download_href, new_version_num) = check_for_update(URL)
 
     current_version_folder = get_current_version_number()
 
-    if version_num > current_version_folder.version_num:
+    if new_version_num > current_version_folder.version_num:
+
         print("New server version available online.")
-        update = input("Would you like to update your version? (y/n)\n").lower().startswith("y")
+        update = input(f"Would you like to update your server version from {current_version_folder.name} to"
+                       f" {str(new_version_num)}? (y/n)\n").lower().startswith("y")
+
         if update:
             print("Downloading new server zip...")
-            download_url(server_download_href, save_path="../NewTerrariaServer.zip")
-            print("Unzipping file...")
-            print("Moving over server config file")
+            download_url(server_download_href, save_path=f'../{ZIPNAME}')
 
-    elif version_num == current_version_folder:
-        print("Current server up to date.")
+            print("Unzipping file...")
+            unzip_server(f"../{ZIPNAME}")
+
+            print("Attempting to copy over server config file...")
+            was_copied = copy_config(f"{current_version_folder.name}/Linux/{CONFIG_FILE}",
+                                     f"{str(new_version_num)}/Linux/{CONFIG_FILE}")
+
+            if was_copied:
+                print("Server config file copied over.")
+            else:
+                print(f"No server config file to copy over (looking for '{CONFIG_FILE}').")
+
+            print("Successfully updated Terraria server.")
+
+    elif new_version_num == current_version_folder.version_num:
+        print("Current server version up to date.")
         return
 
 

@@ -2,6 +2,14 @@
 
 Checks if your vanilla Terraria server needs updating and if so will download and copy over server config
 
+## Requirements
+
+* Python >= 3.7 (As code uses data classes)
+
+Make sure to install the requirements in requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
 ## Installation
 
