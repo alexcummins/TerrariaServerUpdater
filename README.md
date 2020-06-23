@@ -1,6 +1,11 @@
 # TerrariaServerUpdater
 
-Checks if your vanilla Terraria server needs updating and if so will download and copy over server config
+This Python program will check if your vanilla Terraria server needs updating, and if so, will automatically download the new Terraria server version and copy over any config files to the new one.
+
+#TODO
+* Copy over config files for windows and mac too, and test it works on windows
+* include config.json and any others
+* Change file permissions of server files once they are downloaded so they don't have to be changed manually.
 
 ## Requirements
 
