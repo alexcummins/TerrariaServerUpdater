@@ -1,6 +1,7 @@
 import os
 import re
 from dataclasses import dataclass
+from typing import Optional
 import zipfile
 import shutil
 
@@ -11,7 +12,7 @@ class Folder:
     version_num: int
 
 
-def get_current_version_number() -> Folder:
+def get_current_version_number() -> Optional[Folder]:
     file_names: [str] = os.listdir("../")
     latest_folder: str = None
 
@@ -23,8 +24,9 @@ def get_current_version_number() -> Folder:
         latest_folder = __check_versions(file_group, latest_folder)
 
     if not latest_folder:
-        raise FileNotFoundError("No terraria server folder found. \n"
-                                "Ensure old server's folder still have default name, for example '1335'")
+        print("No terraria server folder found. \n"
+              "Ensure old server's folder still have default name, for example '1335'")
+        return None
     return Folder(name=latest_folder, version_num=int(latest_folder))
 
 
