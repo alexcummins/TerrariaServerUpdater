@@ -13,7 +13,7 @@ This Python program will check if your vanilla Terraria server needs updating, a
 
 Make sure to install the requirements in requirements.txt
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Installation
